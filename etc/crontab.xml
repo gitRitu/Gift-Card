@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="ds_giftcard_expiration_check" instance="Dotsquare\Giftcard\Cron\ExpirationCheck" method="execute">
+            <schedule>0 0 * * *</schedule>
+        </job>
+        <job name="ds_giftcard_delivery_date_check" instance="Dotsquare\Giftcard\Cron\DeliveryDateCheck" method="execute">
+            <schedule>*/5 * * * *</schedule>
+        </job>
+    </group>
+</config>

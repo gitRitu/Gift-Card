@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="ds_giftcard_amounts" type="Dotsquare\Giftcard\Api\Data\AmountInterface[]" />
+        <attribute code="ds_giftcard_templates" type="Dotsquare\Giftcard\Api\Data\TemplateInterface[]" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Quote\Api\Data\ProductOptionInterface">
+        <attribute code="ds_giftcard_option" type="Dotsquare\Giftcard\Api\Data\OptionInterface" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductOptionInterface">
+        <attribute code="ds_giftcard_option" type="Dotsquare\Giftcard\Api\Data\OptionInterface" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Quote\Api\Data\TotalSegmentInterface">
+        <attribute code="ds_giftcard_codes" type="mixed[]" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Quote\Api\Data\CartInterface">
+        <attribute code="ds_giftcard_amount" type="float" />
+        <attribute code="base_ds_giftcard_amount" type="float" />
+        <attribute code="ds_giftcard_codes" type="Dotsquare\Giftcard\Api\Data\Giftcard\QuoteInterface[]" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\OrderInterface">
+        <attribute code="ds_giftcard_amount" type="float" />
+        <attribute code="base_ds_giftcard_amount" type="float" />
+        <attribute code="ds_giftcard_invoiced" type="float" />
+        <attribute code="base_ds_giftcard_invoiced" type="float" />
+        <attribute code="ds_giftcard_refunded" type="float" />
+        <attribute code="base_ds_giftcard_refunded" type="float" />
+        <attribute code="ds_giftcard_codes" type="Dotsquare\Giftcard\Api\Data\Giftcard\OrderInterface[]" />
+        <attribute code="ds_giftcard_codes_invoiced" type="Dotsquare\Giftcard\Api\Data\Giftcard\InvoiceInterface[]" />
+        <attribute code="ds_giftcard_codes_refunded" type="Dotsquare\Giftcard\Api\Data\Giftcard\CreditmemoInterface[]" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\InvoiceInterface">
+        <attribute code="ds_giftcard_amount" type="float" />
+        <attribute code="base_ds_giftcard_amount" type="float" />
+        <attribute code="ds_giftcard_codes" type="Dotsquare\Giftcard\Api\Data\Giftcard\InvoiceInterface[]" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\CreditmemoInterface">
+        <attribute code="ds_giftcard_amount" type="float" />
+        <attribute code="base_ds_giftcard_amount" type="float" />
+        <attribute code="ds_giftcard_codes" type="Dotsquare\Giftcard\Api\Data\Giftcard\CreditmemoInterface[]" />
+    </extension_attributes>
+</config>

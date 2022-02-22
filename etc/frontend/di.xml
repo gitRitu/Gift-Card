@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Wishlist\Block\Catalog\Product\View\AddTo\Wishlist">
+        <plugin name="ds-giftcard-wishlist-options" type="Dotsquare\Giftcard\Plugin\Block\Wishlist\OptionsPlugin" />
+    </type>
+    <type name="Magento\Wishlist\Block\Item\Configure">
+        <plugin name="ds-giftcard-wishlist-options" type="Dotsquare\Giftcard\Plugin\Block\Wishlist\OptionsPlugin" />
+    </type>
+    <type name="Magento\Customer\CustomerData\Customer">
+        <plugin name="ds-giftcard-customer-data" type="Dotsquare\Giftcard\Plugin\CustomerData\CustomerPlugin" />
+    </type>
+    <type name="Magento\Framework\Data\Structure">
+        <plugin name="ds-giftcard-set-as-child" type="Dotsquare\Giftcard\Plugin\Data\StructurePlugin" />
+    </type>
+    <type name="Magento\Framework\Url\SecurityInfo">
+        <arguments>
+            <argument name="secureUrlList" xsi:type="array">
+                <item name="ds_giftcard" xsi:type="string">/dsgiftcard/card/</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="ds_giftcard_config_provider" xsi:type="object">Dotsquare\Giftcard\Model\ConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Helper\Product\ConfigurationPool">
+        <arguments>
+            <argument name="instancesByType" xsi:type="array">
+                <item name="ds_giftcard" xsi:type="object">Dotsquare\Giftcard\Model\Product\Configuration</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

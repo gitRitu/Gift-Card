@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <css src="Dotsquare_Giftcard::css/style.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Dotsquare\Giftcard\Block\Customer\Giftcard" name="ds_giftcard_customer" template="Dotsquare_Giftcard::customer/giftcard.phtml" cacheable="false">
+                <block class="Dotsquare\Giftcard\Block\Customer\Giftcard\Codes" name="ds_giftcard_codes" as="ds_giftcard_codes" />
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_catalog_product_form_prepare_excluded_field_list">
+        <observer name="dsgiftcard_catalog_product_form_prepare_excluded_field_list" instance="Dotsquare\Giftcard\Observer\UpdateExcludedFieldListObserver" />
+    </event>
+    <event name="controller_action_predispatch">
+        <observer name="dsgiftcard_controller_action_predispatch" instance="Dotsquare\Giftcard\Observer\ControllerActionPredispatchObserver" />
+    </event>
+    <event name="adminhtml_sales_order_create_process_data">
+        <observer name="dsgiftcard_order_create_process_data" instance="Dotsquare\Giftcard\Observer\OrderCreationProcessDataObserver"/>
+    </event>
+</config>

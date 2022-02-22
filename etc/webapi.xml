@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Managing Gift Card -->
+    <route url="/V1/dsGiftcard/:giftcardCode" method="GET">
+        <service class="Dotsquare\Giftcard\Api\GiftcardRepositoryInterface" method="getByCode"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_codes"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcard/search" method="GET">
+        <service class="Dotsquare\Giftcard\Api\GiftcardRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_codes"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcard" method="POST">
+        <service class="Dotsquare\Giftcard\Api\GiftcardRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_codes"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcard/:id" method="PUT">
+        <service class="Dotsquare\Giftcard\Api\GiftcardRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_codes"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcard/:giftcardId" method="DELETE">
+        <service class="Dotsquare\Giftcard\Api\GiftcardRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_codes"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcard/send-giftcard-by-code" method="POST">
+        <service class="Dotsquare\Giftcard\Api\GiftcardManagementInterface" method="sendGiftcardByCode"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_codes"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcard/get-giftcards-by-customer" method="GET">
+        <service class="Dotsquare\Giftcard\Api\GiftcardManagementInterface" method="getCustomerGiftcards"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_codes"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcard/generate-giftcard-codes" method="POST">
+        <service class="Dotsquare\Giftcard\Api\GiftcardManagementInterface" method="generateCodes"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_codes"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcard/import-codes" method="POST">
+        <service class="Dotsquare\Giftcard\Api\GiftcardManagementInterface" method="importCodes"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_codes"/>
+        </resources>
+    </route>
+
+    <!-- Managing Pool -->
+    <route url="/V1/dsGiftcardPool/:poolId" method="GET">
+        <service class="Dotsquare\Giftcard\Api\PoolRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_pools"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcardPool/search" method="GET">
+        <service class="Dotsquare\Giftcard\Api\PoolRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_pools"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcardPool" method="POST">
+        <service class="Dotsquare\Giftcard\Api\PoolRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_pools"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcardPool/:id" method="PUT">
+        <service class="Dotsquare\Giftcard\Api\PoolRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_pools"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcardPool/:poolId" method="DELETE">
+        <service class="Dotsquare\Giftcard\Api\PoolRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_pools"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcardPool/generate-codes" method="POST">
+        <service class="Dotsquare\Giftcard\Api\PoolManagementInterface" method="generateCodesForPool"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_pools"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcardPool/import-codes" method="POST">
+        <service class="Dotsquare\Giftcard\Api\PoolManagementInterface" method="importCodesToPool"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_pools"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcardPool/pull-code" method="POST">
+        <service class="Dotsquare\Giftcard\Api\PoolManagementInterface" method="pullCodeFromPool"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_pools"/>
+        </resources>
+    </route>
+
+    <!-- Managing Pool Codes -->
+    <route url="/V1/dsGiftcardPoolCode/:codeId" method="GET">
+        <service class="Dotsquare\Giftcard\Api\PoolCodeRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_pools"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcardPoolCode/search" method="GET">
+        <service class="Dotsquare\Giftcard\Api\PoolCodeRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_pools"/>
+        </resources>
+    </route>
+    <route url="/V1/dsGiftcardPoolCode/:codeId" method="DELETE">
+        <service class="Dotsquare\Giftcard\Api\PoolCodeRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Dotsquare_Giftcard::giftcard_pools"/>
+        </resources>
+    </route>
+
+    <!-- Managing Cart Gift Card -->
+    <route url="/V1/carts/:cartId/ds-giftcard/:giftcardCode" method="PUT">
+        <service class="Dotsquare\Giftcard\Api\GiftcardCartManagementInterface" method="set"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/carts/:cartId/ds-giftcard" method="GET">
+        <service class="Dotsquare\Giftcard\Api\GiftcardCartManagementInterface" method="get"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/carts/:cartId/ds-giftcard/:giftcardCode" method="DELETE">
+        <service class="Dotsquare\Giftcard\Api\GiftcardCartManagementInterface" method="remove"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/carts/:cartId/ds-giftcard-get-customer-codes" method="GET">
+        <service class="Dotsquare\Giftcard\Api\GiftcardManagementInterface" method="getCustomerGiftcards"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <!-- Managing Guest Cart Gift Card -->
+    <route url="/V1/guest-carts/:cartId/ds-giftcard/:giftcardCode" method="PUT">
+        <service class="Dotsquare\Giftcard\Api\GuestGiftcardCartManagementInterface" method="set"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/guest-carts/:cartId/ds-giftcard" method="GET">
+        <service class="Dotsquare\Giftcard\Api\GuestGiftcardCartManagementInterface" method="get"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/guest-carts/:cartId/ds-giftcard/:giftcardCode" method="DELETE">
+        <service class="Dotsquare\Giftcard\Api\GuestGiftcardCartManagementInterface" method="remove"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <!-- Managing Mine Cart Gift Card -->
+    <route url="/V1/carts/mine/ds-giftcard/:giftcardCode" method="PUT">
+        <service class="Dotsquare\Giftcard\Api\GiftcardCartManagementInterface" method="set"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/ds-giftcard" method="GET">
+        <service class="Dotsquare\Giftcard\Api\GiftcardCartManagementInterface" method="get"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/ds-giftcard/:giftcardCode" method="DELETE">
+        <service class="Dotsquare\Giftcard\Api\GiftcardCartManagementInterface" method="remove"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/ds-giftcard-get-customer-codes" method="GET">
+        <service class="Dotsquare\Giftcard\Api\GiftcardManagementInterface" method="getCustomerGiftcards"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+</routes>

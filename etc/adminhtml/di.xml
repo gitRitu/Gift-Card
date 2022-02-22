@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Controller\Adminhtml\Product\Initialization\Helper">
+        <plugin name="ds-giftcard-product-initialize" type="Dotsquare\Giftcard\Plugin\Controller\Catalog\Adminhtml\Product\InitializationHelperPlugin" />
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Order\Creditmemo\NewAction">
+        <plugin name="ds-giftcard-new-creditmemo" type="Dotsquare\Giftcard\Plugin\Controller\Sales\Order\NewCreditmemoPlugin" />
+    </type>
+    <type name="Magento\Backend\Model\Menu\Item">
+        <plugin name="ds-giftcard-menu-item" type="Dotsquare\Giftcard\Plugin\Model\Backend\MenuItemPlugin" />
+    </type>
+    <type name="Magento\Email\Model\AbstractTemplate">
+        <plugin name="ds-giftcard-preview-template" type="Dotsquare\Giftcard\Plugin\Model\Email\AbstractTemplatePlugin" />
+    </type>
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="dsGiftcard" xsi:type="array">
+                    <item name="class" xsi:type="string">Dotsquare\Giftcard\Ui\DataProvider\Product\Form\Modifier\Giftcard</item>
+                    <item name="sortOrder" xsi:type="number">15</item>
+                </item>
+                <item name="dsGiftcardTemplates" xsi:type="array">
+                    <item name="class" xsi:type="string">Dotsquare\Giftcard\Ui\DataProvider\Product\Form\Modifier\Templates</item>
+                    <item name="sortOrder" xsi:type="number">15</item>
+                </item>
+                <item name="dsGiftcardAmounts" xsi:type="array">
+                    <item name="class" xsi:type="string">Dotsquare\Giftcard\Ui\DataProvider\Product\Form\Modifier\Amounts</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Catalog\Block\Adminhtml\Product\Attribute\Edit\Tab\Advanced">
+        <arguments>
+            <argument name="disableScopeChangeList" xsi:type="array">
+                <item name="ds_gc_email_templates" xsi:type="string">ds_gc_email_templates</item>
+                <item name="ds_gc_amounts" xsi:type="string">ds_gc_amounts</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

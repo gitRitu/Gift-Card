@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Dotsquare_Giftcard::home" title="Gift Card by Dotsquare" module="Dotsquare_Giftcard" sortOrder="100" parent="Magento_Catalog::catalog" resource="Dotsquare_Giftcard::home"/>
+        <add id="Dotsquare_Giftcard::code_pools" title="Code Pools" module="Dotsquare_Giftcard" sortOrder="10" parent="Dotsquare_Giftcard::home" action="ds_giftcard_admin/pool/index" resource="Dotsquare_Giftcard::code_pools"/>
+        <add id="Dotsquare_Giftcard::giftcard_codes" title="Gift Card Codes" module="Dotsquare_Giftcard" sortOrder="20" parent="Dotsquare_Giftcard::home" action="ds_giftcard_admin/giftcard/index" resource="Dotsquare_Giftcard::giftcard_codes"/>
+        <add id="Dotsquare_Giftcard::giftcard_products" title="Gift Card Products" module="Dotsquare_Giftcard" sortOrder="30" parent="Dotsquare_Giftcard::home" action="ds_giftcard_admin/product/index" resource="Dotsquare_Giftcard::giftcard_products"/>
+    </menu>
+</config>
